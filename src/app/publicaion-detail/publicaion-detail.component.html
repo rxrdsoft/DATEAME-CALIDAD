@@ -1,0 +1,58 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Publicaciones 6646464646464</h4>
+                        <p class="category">Encontraras todas las rutas</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="col-md-2 col-sm-4">
+                            <img src="" alt="" class="img-circle img-responsive">
+                        </div>
+                       <div class="col-md-10 col-sm-8">
+                        <textarea [(ngModel)]="descripcion" name="descripcion" id="descripcion" placeholder="Descripcion.." class="form-control"></textarea>
+                       </div>
+                        <button type="submit" id="submit" (click)="addPublicacion()" class="btn btn-info">
+                            <i class="material-icons">add</i>
+                            Añadir Publicacion
+                        </button>   
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div *ngFor="let publicacion of publicaciones | async" class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="card">
+                                    <div class="card-header" data-background-color="red">
+                                            <i class="material-icons">comment</i>
+                                            sdjfhjdhs
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="col-md-5 col-sm-5 col-xs-5">
+                                            <img src="" alt="" class="img-circle img-responsive"> 
+                                        </div>
+                                        <div class="col-md-7 col-sm-7 col-xs-7">
+                                            <p class="category">
+                                                jjjghsdj
+                                            </p>
+                                        </div>    
+                                               
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <a (click)="responder_comment(publicacion.id)" class="btn btn-default">
+                                                <i class="material-icons" id="responder">navigate_next</i>
+                                                Responder
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>       
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
