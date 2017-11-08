@@ -16,7 +16,7 @@ const routes: Routes =[
     { path: 'home',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'tarifas',     component: TableListComponent },
-    {path:'detalles:id',component:PublicaionDetailComponent},
+    {path:'detalles/:id',component:PublicaionDetailComponent},
     { path: 'publicaciones',     component: TypographyComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'login',  component: LoginComponent },

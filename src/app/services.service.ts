@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-import {AngularFireDatabase,AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 
@@ -9,13 +8,14 @@ interface Publicacion {
   uid:string;
   name:string;
   photoURL:string;
+  id:string;
 }
 @Injectable()
 export class ServicesService {
   
   publicacionesCol: AngularFirestoreCollection<Publicacion>;
   publicaciones: Observable<Publicacion[]>;
-  constructor(private afs: AngularFirestore,db:AngularFireDatabase) { 
+  constructor(private afs: AngularFirestore) { 
     /*this.publicacionesCol = this.afs.collection('publicaciones');
     this.publicaciones = this.publicacionesCol.valueChanges();
 
