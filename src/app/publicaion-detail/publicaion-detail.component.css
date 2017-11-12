@@ -1,3 +1,7 @@
 .valoracion{
    color: #ef5350;
 }
+.arreglo{
+   word-wrap: break-word;
+   text-align: left;
+}

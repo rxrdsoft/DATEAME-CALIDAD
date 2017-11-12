@@ -12,6 +12,15 @@ interface Publicacion {
   photoURL:string;
   id:string;
 }
+interface Respuesta {
+  
+  uid:string;
+  name:string;
+  photoURL:string;
+  mensaje: string;
+  idPublicacion:string;
+  id:string
+}
 @Component({
   selector: 'app-publicaion-detail',
   templateUrl: './publicaion-detail.component.html',
@@ -19,16 +28,15 @@ interface Publicacion {
 })
 export class PublicaionDetailComponent implements OnInit {
   //publicacionesCol:AngularFirestoreCollection<Publicacion>
-  idPublicacion:String;
+  respuestasCol: AngularFirestoreCollection<Respuesta>;
+  respuestas: Observable<Respuesta[]>;
+  idPublicacion:string;
   publicacion:Observable<Publicacion[]>;
   activeUser:firebase.User;
+  mensaje:string;
   constructor(private afs:AngularFirestore,private service:ServicesService,private route:ActivatedRoute,private auth:AuthService) { }
 
   ngOnInit() {
-   /* this.route.params.subscribe((params)=>this.idPublicacion=params['id']);
-    this.publicacionesCol = this.afs.collection<Publicacion>('publicaciones',ref => ref.where('id', '==',this.idPublicacion));
-    this.publicacion = this.publicacionesCol.valueChanges();*/
-
    this.route.params.subscribe((params)=>this.idPublicacion=params['id']);
    console.log('ESTO ES EL ID POR ROUTE= '+this.idPublicacion);
     this.publicacion=this.service.getPublicaciones(this.idPublicacion);
@@ -36,6 +44,19 @@ export class PublicaionDetailComponent implements OnInit {
     this.activeUser=this.auth.getAuthState();
     console.log(this.activeUser);
    // this.publicacion.subscribe(console.log);
+   this.respuestasCol = this.afs.collection<Respuesta>('publicacion_respuestas');
+   this.respuestas = this.respuestasCol.valueChanges();
+  }
+
+  addRespuesta(){
+    //console.log(this.mensaje)
+    this.respuestasCol.add({'uid':this.activeUser.uid,
+                            'name':this.activeUser.displayName,
+                            'photoURL':this.activeUser.photoURL,
+                            'mensaje': this.mensaje,
+                            'idPublicacion':this.idPublicacion,
+                            'id':this.afs.createId()                           
+                            });
   }
 
 }

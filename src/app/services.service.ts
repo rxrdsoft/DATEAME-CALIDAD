@@ -10,11 +10,14 @@ interface Publicacion {
   photoURL:string;
   id:string;
 }
+
 @Injectable()
 export class ServicesService {
   
   publicacionesCol: AngularFirestoreCollection<Publicacion>;
+  //respuestasCol: AngularFirestoreCollection<Respuesta>;
   publicaciones: Observable<Publicacion[]>;
+  //respuestas: Observable<Respuesta[]>;
   constructor(private afs: AngularFirestore) { 
     /*this.publicacionesCol = this.afs.collection('publicaciones');
     this.publicaciones = this.publicacionesCol.valueChanges();

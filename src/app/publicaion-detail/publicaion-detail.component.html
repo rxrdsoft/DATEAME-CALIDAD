@@ -5,10 +5,10 @@
                 <div class="card">
                     <div class="card-header" data-background-color="red" *ngFor='let publi of publicacion | async'>
                         <div class="row">
-                            <div class="col-md-1">
+                            <div class="col-md-1 col-sm-1 col-xs-1">
                                 <img src="{{publi.photoURL}}" alt="" class="img-rounded img-responsive img-raised">
                             </div>
-                            <div class="col-md-11">
+                            <div class="col-md-11 col-sm-11 col-xs-11">
                                 <h4 class="title">{{publi.descripcion}}</h4>
                                 <p class="category">Fecha de publicacion</p>
                             </div>
@@ -20,66 +20,39 @@
                             <img src="{{activeUser.photoURL}}" alt="" class="img-circle img-responsive">
                         </div>
                        <div class="col-md-10 col-sm-8">
-                        <textarea [(ngModel)]="descripcion" name="descripcion" id="descripcion" placeholder="Escribe tu ayuda.." class="form-control"></textarea>
+                        <textarea [(ngModel)]="mensaje" name="mensaje" id="mensaje" placeholder="Escribe tu ayuda.." class="form-control"></textarea>
                        </div>
-                        <button type="submit" id="submit" (click)="addMessage()" class="btn btn-info">
+                        <button type="submit" id="submit" (click)="addRespuesta()" class="btn btn-info">
                             <i class="material-icons">add</i>
-                            Publicar
+                            Respuesta
                         </button>   
                     </div>
                     
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div  class="col-md-12 col-sm-6 col-xs-12">
+                            <div  class="col-md-12 col-sm-6 col-xs-12" *ngFor="let respuesta of respuestas | async">
                                 <div class="card card-stats">
                                     <div class="card-header pull-right" data-background-color="red">
                                         <i class="material-icons">record_voice_over</i>
                                     </div>
                                     <div class="card-content">
-                                        <h3 class="title">loremloremloremrelhbchabscahbscabcjahcbaaascascascacacaac<small>GB</small></h3>
-                                        <p class="category">Fecha de publicacion</p>
+                                        <h3 class="title arreglo">{{respuesta.mensaje}}</h3>
+                                        <p class="category">12/11/27 2:48am</p>
                                         
                                     </div>
                                     <div class="card-footer">
                                         <a href="" class="valoracion"><i class="material-icons">thumb_up</i></a>
                                         <a href="" class="valoracion"><i class="material-icons">thumb_down</i></a>
+                                        <div class="pull-right">
+                                                <span><i class="material-icons">star</i></span>
+                                                <span><i class="material-icons">star</i></span>
+                                                <span><i class="material-icons">star</i></span>
+                                                <span><i class="material-icons">star_border</i></span>
+                                                <span><i class="material-icons">star_border</i></span>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div  class="col-md-12 col-sm-6 col-xs-12">
-                                    <div class="card card-stats">
-                                        <div class="card-header pull-right" data-background-color="red">
-                                            <i class="material-icons">record_voice_over</i>
-                                        </div>
-                                        <div class="card-content">
-                                            <h3 class="title">loremloremloremrelhbchabscahbscabcjahcbaaascascascacacaac<small>GB</small></h3>
-                                            <p class="category">Fecha de publicacion</p>
-                                            
-                                        </div>
-                                        <div class="card-footer">
-                                            <a href="" class="valoracion"><i class="material-icons">thumb_up</i></a>
-                                            <a href="" class="valoracion"><i class="material-icons">thumb_down</i></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div  class="col-md-12 col-sm-6 col-xs-12">
-                                        <div class="card card-stats">
-                                            <div class="card-header pull-right" data-background-color="red">
-                                                <i class="material-icons">record_voice_over</i>
-                                            </div>
-                                            <div class="card-content">
-                                                <h3 class="title">loremloremloremrelhbchabscahbscabcjahcbaaascascascacacaac<small>GB</small></h3>
-                                                <p class="category">Fecha de publicacion</p>
-                                                
-                                            </div>
-                                            <div class="card-footer">
-                                                <a href="" class="valoracion"><i class="material-icons">thumb_up</i></a>
-                                                <a href="" class="valoracion"><i class="material-icons">thumb_down</i></a>
-                                            </div>
-                                        </div>
-                                    </div>
                         </div>    
                     </div>
                 </div>
