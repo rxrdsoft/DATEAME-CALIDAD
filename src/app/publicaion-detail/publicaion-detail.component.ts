@@ -44,7 +44,7 @@ export class PublicaionDetailComponent implements OnInit {
     this.activeUser=this.auth.getAuthState();
     console.log(this.activeUser);
    // this.publicacion.subscribe(console.log);
-   this.respuestasCol = this.afs.collection<Respuesta>('publicacion_respuestas');
+   this.respuestasCol = this.afs.collection('publicacion_respuestas',ref => ref.where('idPublicacion', '==', this.idPublicacion));
    this.respuestas = this.respuestasCol.valueChanges();
   }
 
