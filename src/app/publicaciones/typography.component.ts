@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {AuthService} from '../auth.service'
 import * as firebase from 'firebase/app';
-
+import {DatePipe} from '@angular/common';
 interface Publicacion {
   descripcion: string;
   uid:string;
@@ -21,10 +21,9 @@ interface Publicacion {
 export class TypographyComponent implements OnInit {
   publicacionesCol: AngularFirestoreCollection<Publicacion>;
   publicaciones: Observable<Publicacion[]>;
-  
   userDetails: firebase.User;
   descripcion:string;
-
+  today:number;
 
   constructor(private afs: AngularFirestore,private authService:AuthService) {}
 
@@ -34,7 +33,8 @@ export class TypographyComponent implements OnInit {
     this.userDetails=this.authService.getAuthState();
     console.log(this.authService.isLoggedIn());
     console.log(this.publicaciones.subscribe((resp)=>console.log(resp)));
-    console.log('PRUEBA PARA HOME');
+    //this.today=Date.now();
+    //console.log(this.today.toLocaleString());
   
   }
   addPublicacion() {

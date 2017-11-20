@@ -22,3 +22,9 @@ hr{
 #titulo,#descripcion{
    background-image: linear-gradient(#8c898d, #8c898d), linear-gradient(#D2D2D2, #D2D2D2)
 }
+.formato_publicacion{
+   height: 210px;
+}
+.foto_user , .info_user{
+   padding-left: 0;
+}

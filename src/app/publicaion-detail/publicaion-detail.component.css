@@ -1,7 +1,23 @@
-.valoracion{
-   color: #ef5350;
-}
 .arreglo{
    word-wrap: break-word;
    text-align: left;
 }
+.estrellas{
+   margin-top: 15px;
+}
+.foto{
+   width: 86px;
+   height: 86px;
+}
+.publicacion_info{
+   text-align: center;
+   margin-left: 15px;
+}
+.respuesta{
+   background: floralwhite;
+}
+.valoracion{
+   color: #ef5350;
+   background: #fff;
+}
+
